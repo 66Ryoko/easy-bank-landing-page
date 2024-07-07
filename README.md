@@ -2,7 +2,9 @@ This is a layout challenge project from [Frontend Mentor](https://www.frontendme
 
 ## How to use it
 
-Install and run the development server:
+You can run the project locally at http://localhost:3000/, or you can view the demo website deployed on Vercel at [Demo](https://easy-bank-landing-page-drab.vercel.app/).
+
+Hint: Your Node.js version must be above 18.17.0.
 
 ```bash
 npm i
