@@ -2,10 +2,10 @@
 import { clsx } from 'clsx';
 import { useMediaQuery, useClickAway } from '@uidotdev/usehooks';
 import { useState } from 'react';
-import Image from 'next/image';
 import Link from 'next/link';
-import { Button, CloseIcon, MenuIcon } from './';
-type MenuItem = { name: string; url: string };
+import { Logo, RequestInviteButton, CloseIcon, MenuIcon } from './';
+import { MenuItem } from '@/app/lib/definitions';
+
 export function NavBar() {
   const menu: MenuItem[] = [
     { name: 'Home', url: '/#Home' },
@@ -15,7 +15,7 @@ export function NavBar() {
     { name: 'Careers', url: '/#Careers' },
   ];
   const [menuOpen, setMenuOpen] = useState<boolean>(false);
-  const isMediumDevice = useMediaQuery('only screen and (max-width : 767px)');
+  const isLargeDevice = useMediaQuery('only screen and (min-width : 1024px)');
   const ref = useClickAway<HTMLDivElement>(() => {
     setMenuOpen(false);
   });
@@ -24,21 +24,21 @@ export function NavBar() {
     <>
       <div
         ref={ref}
-        className="fixed inset-x-0 top-0 z-50 flex h-20 items-center justify-between gap-2 bg-white px-6 md:px-16 lg:px-40"
+        className="fixed inset-x-0 top-0 z-50 flex h-20 w-full items-center justify-between gap-2 bg-white px-6 lg:px-40"
       >
-        <Image src="/logo.svg" width={139} height={20} alt="easybank" />
-        {(!isMediumDevice || menuOpen) && (
+        <Logo className="fill-dark-blue" />
+        {(isLargeDevice || menuOpen) && (
           <nav
             className={clsx(
               'fixed inset-x-6 top-24 flex flex-col gap-6 rounded bg-white py-8',
-              'md:static md:h-full md:flex-row md:gap-[30px] md:py-0',
+              'lg:static lg:h-full lg:flex-row lg:gap-[30px] lg:py-0',
             )}
           >
             {menu.map((item) => (
               <Link
                 className={clsx(
-                  'flex h-fit flex-col items-center text-lg font-normal leading-tight tracking-[-0.138px] text-darkBlue',
-                  'md:h-full md:flex-row md:border-y-4 md:border-transparent md:text-sm md:leading-loose md:tracking-[-0.108px] md:text-GrayBlue md:hover:border-b-limeGreen md:hover:text-darkBlue',
+                  'text-dark-blue flex h-fit flex-col items-center text-lg font-normal leading-tight tracking-[-0.138px]',
+                  'lg:hover:border-b-lime-green lg:hover:text-dark-blue lg:text-gray-blue lg:h-full lg:flex-row lg:border-y-4 lg:border-transparent lg:text-sm lg:leading-loose lg:tracking-[-0.108px]',
                 )}
                 href={item.url}
                 key={item.name}
@@ -49,17 +49,17 @@ export function NavBar() {
             ))}
           </nav>
         )}
-        <button className="block size-5 md:hidden" onClick={toggleMenu}>
+        <button className="block size-5 lg:hidden" onClick={toggleMenu}>
           {menuOpen ? (
             <CloseIcon className="size-full" />
           ) : (
             <MenuIcon className="size-full" />
           )}
         </button>
-        <Button className="hidden shrink-0 md:block">Request Invite</Button>
+        <RequestInviteButton className="hidden shrink-0 lg:block" />
       </div>
       {menuOpen && (
-        <div className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-hidden bg-gradient-to-b from-[#2D314D] to-transparent md:hidden"></div>
+        <div className="fixed inset-x-0 bottom-0 top-20 z-40 overflow-hidden bg-gradient-to-b from-[#2D314D] to-transparent lg:hidden"></div>
       )}
     </>
   );

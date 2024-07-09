@@ -9,10 +9,16 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        limeGreen: '#30C88F',
-        brightCyan: '#2AB6D9',
-        darkBlue: '#2D314D',
-        GrayBlue: '#9597A5',
+        'lime-green': '#30C88F',
+        'bright-cyan': '#2AB6D9',
+        'dark-blue': '#2D314D',
+        'gray-blue': '#9597A5',
+        'pale-gray': '#FAFAFA',
+        'light-gray': '#F4F5F7',
+      },
+      backgroundImage: {
+        'hero-desktop': 'url("/bg-intro-desktop.svg")',
+        'hero-mobile': 'url("/bg-intro-mobile.svg")',
       },
     },
   },
