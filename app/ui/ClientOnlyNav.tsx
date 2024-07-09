@@ -25,7 +25,7 @@ export function ClientOnlyNav() {
       {menuOpen && (
         <div className="fixed inset-x-0 bottom-0 top-20 overflow-hidden bg-gradient-to-b from-[#2D314D] to-transparent lg:hidden"></div>
       )}
-      <div ref={ref}>
+      <div className="flex h-full items-center" ref={ref}>
         {(isLargeDevice || menuOpen) && (
           <nav
             className={clsx(
