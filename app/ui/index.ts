@@ -2,7 +2,7 @@ export * from './ClientOnlyNav';
 export * from './NavBar';
 export * from './Hero';
 export * from './Advantage';
-export * from './Article';
+export * from './Articles';
 export * from './Footer';
 export * from './Button';
 export * from './RequestInviteButton';

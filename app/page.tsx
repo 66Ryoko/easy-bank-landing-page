@@ -1,4 +1,4 @@
-import { NavBar, Hero, Advantage, Article, Footer } from './ui';
+import { NavBar, Hero, Advantage, Articles, Footer } from './ui';
 
 export default function Home() {
   return (
@@ -6,7 +6,7 @@ export default function Home() {
       <NavBar />
       <Hero />
       <Advantage />
-      <Article />
+      <Articles />
       <Footer />
     </main>
   );
